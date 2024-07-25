@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 프론트엔드 CI/CD 파이프라인
 
-## Getting Started
+항해 플러스 프론트엔드 2기 6주차 심화 과제
 
-First, run the development server:
+### 개요
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![image](./public/architecture.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+GitHub Actions에 워크플로우를 작성해 다음과 같이 배포가 진행되도록 함
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 저장소를 체크아웃합니다.
+2. Node.js 18.x 버전을 설정합니다.
+3. 프로젝트 의존성을 설치합니다.
+4. Next.js 프로젝트를 빌드합니다.
+5. AWS 자격 증명을 구성합니다.
+6. 빌드된 파일을 S3 버킷에 동기화합니다.
+7. CloudFront 캐시를 무효화합니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 주요 링크
 
-## Learn More
+- S3 버킷 웹사이트 엔드포인트: http://hanghae-front-2nd.s3-website-us-east-1.amazonaws.com/
+- CloudFront 배포 도메인 이름: https://dook6law1darh.cloudfront.net/
 
-To learn more about Next.js, take a look at the following resources:
+### 주요 개념
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. GitHub Actions 와 CI/CD 도구
+2. S3 와 스토리지
+3. CloudFront 와 CDN
+4. 캐시 무효화 (Cache Invalidation)
+5. Repository secret 과 환경변수
